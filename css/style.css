@@ -490,3 +490,22 @@ h6,
         margin-bottom: -75px;
     }
 }
+
+.footer-logo-text {
+    font-size: 24px; /* Ajusta este valor al tamaño deseado */
+    /* O si quieres que sea responsivo: */
+    /* font-size: 2.5vw; */ /* 2.5% del ancho del viewport */
+    /* O para tamaños específicos en diferentes pantallas: */
+}
+
+/* Media queries para responsividad si es necesario */
+@media (max-width: 991.98px) { /* Por ejemplo, para tablets */
+    .footer-logo-text {
+        font-size: 20px;
+    }
+}
+@media (max-width: 767.98px) { /* Por ejemplo, para móviles */
+    .footer-logo-text {
+        font-size: 18px;
+    }
+}
