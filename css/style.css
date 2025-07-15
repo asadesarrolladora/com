@@ -509,3 +509,10 @@ h6,
         font-size: 18px;
     }
 }
+
+.logo-asa-img {
+    height: 1em; /* Ajusta el tamaño según sea necesario */
+    vertical-align: middle; /* Ayuda a alinear la imagen con el texto */
+    margin-right: 0.5em; /* Espacio entre la imagen y el texto */
+    /* Puedes agregar más estilos aquí, como width, etc. */
+}
