@@ -533,70 +533,56 @@ h6,
 
 /* Ajustes para pantallas pequeñas (celulares) */
 
-/* Estilos para el logo y el texto del Navbar en general (escritorio y móviles) */
-.navbar-brand {
-    display: flex; /* Usamos flexbox para alinear el logo y el texto */
-    align-items: center; /* Alinea verticalmente el logo y el texto */
-    text-decoration: none; /* Quita el subrayado si el <a> lo tiene por defecto */
-    color: inherit; /* Hereda el color del texto si no lo quieres blanco/azul por defecto */
-    padding-right: 15px; /* Añade un poco de padding a la derecha para que no choque con el botón de menú */
-}
-
-.navbar-brand .logo-asa-img {
-    height: 45px; /* Ajusta la altura del logo para escritorio. Puedes hacerla más pequeña si es muy grande */
-    width: auto; /* Mantiene la proporción */
-    margin-right: 10px; /* Espacio entre el logo y el texto */
-    flex-shrink: 0; /* Asegura que la imagen no se reduzca */
-}
+/* ... (Tu código CSS anterior para .navbar-brand y .logo-asa-img) ... */
 
 .navbar-brand h1 {
-    font-size: 2.2rem; /* Tamaño de fuente para pantallas de escritorio. Ajusta si necesitas más pequeño */
-    margin: 0; /* Elimina cualquier margen predeterminado de h1 */
-    line-height: 1.2; /* Espaciado entre líneas si el texto se envuelve */
-    color: var(--primary); /* Asume que tienes una variable CSS para tu color primario. Si no, usa el color #0000FF o el que sea de tu marca */
-    /* Para el color que se ve en tu imagen, es probable que sea una variable de Bootstrap, como text-primary */
+    font-size: 2.2rem; /* Tamaño de fuente para pantallas de escritorio. */
+    margin: 0;
+    line-height: 1.2; /* Espaciado entre líneas */
+    color: var(--primary); /* O el color de tu marca */
+    /* Elimina o comenta las siguientes líneas si estaban antes para una sola línea: */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
 }
 
 /* ------------------------------------------------------------- */
-/* Media Queries para Tablets y Móviles (Pantallas más pequeñas) */
+/* Media Queries para Tablets y Móviles */
 /* ------------------------------------------------------------- */
 
-/* Para pantallas más pequeñas que 992px (Bootstrap's 'lg' breakpoint) */
 @media (max-width: 991.98px) {
     .navbar-brand {
-        /* Para el móvil, el ancho es más limitado */
-        max-width: calc(100% - 70px); /* Ajusta el ancho máximo del contenedor del logo/título.
-                                        Restamos espacio para el botón de hamburguesa.
-                                        Prueba con 60px, 70px, 80px según el tamaño de tu botón */
-        white-space: nowrap; /* Intenta mantener el texto en una sola línea */
-        overflow: hidden; /* Oculta el texto que se desborde */
-        text-overflow: ellipsis; /* Añade puntos suspensivos si se corta (opcional) */
-        padding-right: 5px; /* Reduce el padding si el espacio es muy limitado */
+        max-width: calc(100% - 70px); /* Ajusta según el espacio de tu botón de menú */
+        /* Ya no necesitamos white-space: nowrap aquí si el h1 va a ir en dos líneas */
+        /* Si quieres que el contenedor tenga overflow y ellipsis, puedes dejarlo, pero si el h1 es de dos líneas, no aplicaría tanto. */
+        overflow: visible; /* Asegura que el contenedor permita que el h1 crezca en altura */
+        white-space: normal; /* Permitir que el texto se rompa */
     }
 
     .navbar-brand .logo-asa-img {
-        height: 35px; /* Reduce el tamaño del logo en móviles */
-        margin-right: 5px; /* Reduce el espacio entre el logo y el texto en móviles */
+        height: 35px;
+        margin-right: 5px;
+        flex-shrink: 0;
     }
 
     .navbar-brand h1 {
-        font-size: 1.3rem; /* **CLAVE:** Reduce el tamaño de fuente para móviles.
-                            AJUSTA ESTE VALOR (1.1rem, 1.2rem, 1.4rem) hasta que quepa bien en el móvil. */
-        /* Si aún se corta y NO quieres ellipsis, puedes forzar el salto de línea: */
-        /* white-space: normal; */
-        /* word-wrap: break-word; */
-        /* word-break: break-word; */
+        font-size: 1.3rem; /* Ajusta este tamaño de fuente para dos renglones en móvil.
+                            Puede ser un poco más grande que si fuera de una línea. */
+        white-space: normal; /* ¡CLAVE! Permite que el texto se divida en varias líneas */
+        word-wrap: break-word; /* Asegura que las palabras largas se rompan si es necesario */
+        word-break: break-word; /* Otra propiedad para asegurar el quiebre de palabras */
+        line-height: 1.2; /* Ajusta el espacio entre las dos líneas para una mejor lectura */
     }
 }
 
-/* Para pantallas aún más pequeñas (smartphones muy pequeños, menos de 576px) */
 @media (max-width: 575.98px) {
     .navbar-brand .logo-asa-img {
-        height: 30px; /* Quizás un poco más pequeño para teléfonos muy angostos */
+        height: 30px;
         margin-right: 3px;
     }
 
     .navbar-brand h1 {
-        font-size: 1.1rem; /* Podrías necesitar un tamaño de fuente aún más pequeño para que quepa */
+        font-size: 1.1rem; /* Posiblemente un tamaño aún más pequeño para móviles muy angostos */
+        line-height: 1.2;
     }
 }
