@@ -534,31 +534,64 @@ h6,
 /* Ajustes para pantallas pequeñas (celulares) */
 
 
-/* Media Query para pantallas pequeñas (celulares) */
-/* Aquí definimos el tamaño de fuente que se aplicará cuando la pantalla sea más pequeña */
-@media (max-width: 767.98px) { /* breakpoint para dispositivos móviles pequeños (ej. hasta 768px) */
-    .navbar-title-responsive {
-        font-size: 1.5rem; /* Prueba con este valor, ajusta según veas en el celular */
-        /* Puedes ir probando 1.6rem, 1.7rem, 1.8rem, etc. */
-        /* Asegúrate de que este tamaño permita que el texto quepa en una línea */
+/* Estilos por defecto para el logo y el texto del Navbar (para pantallas grandes) */
+.navbar-brand .logo-asa-img {
+    height: 40px; /* Ajusta la altura de tu logo para escritorio si es necesario */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
 
-        /* Puedes volver a permitir que el texto se ajuste en múltiples líneas si cabe */
+.navbar-brand h1 {
+    font-size: 2.5rem; /* Tamaño de fuente para escritorio/pantallas grandes */
+    margin: 0; /* Asegura que no haya márgenes extra indeseados */
+    display: flex; /* Permite alinear el logo y el texto */
+    align-items: center; /* Centra verticalmente el logo y el texto */
+}
+
+/* ------------------------------------------------------------- */
+/* Media Queries para dispositivos móviles */
+/* ------------------------------------------------------------- */
+
+@media (max-width: 991.98px) { /* Punto de ruptura de Bootstrap para 'lg' */
+    .navbar-brand {
+        display: flex; /* Asegura que el logo y el texto estén en línea */
+        align-items: center; /* Alineación vertical */
+        flex-wrap: nowrap; /* Evita que el logo y el texto se rompan en diferentes líneas */
+        white-space: nowrap; /* Evita que el texto se rompa inicialmente */
+        overflow: hidden; /* Oculta cualquier parte que se desborde */
+        text-overflow: ellipsis; /* Añade puntos suspensivos si el texto se corta (opcional, pero útil) */
+        max-width: calc(100% - 60px); /* Ajusta el ancho máximo para dejar espacio al toggler */
+        /* Puedes ajustar '60px' si tu botón de menú es más grande o más pequeño */
+    }
+
+    .navbar-brand .logo-asa-img {
+        height: 30px; /* Reduce el tamaño del logo en móviles */
+        margin-right: 8px; /* Reduce el espacio entre el logo y el texto */
+        flex-shrink: 0; /* Evita que la imagen se reduzca si no hay espacio */
+    }
+
+    .navbar-brand h1 {
+        font-size: 1.2rem; /* REDUCE ESTE VALOR para que quepa en el móvil */
+        /* Prueba con 1.1rem, 1.3rem, 1.4rem, etc., hasta que se vea bien en tu dispositivo. */
+        margin: 0; /* Elimina cualquier margen residual */
+        white-space: nowrap; /* Intenta que el texto esté en una sola línea */
+        overflow: hidden; /* Oculta el contenido que se desborda */
+        text-overflow: ellipsis; /* Agrega puntos suspensivos si se corta */
+    }
+    
+    /* Si el texto es MUY largo y prefieres que salte de línea en lugar de cortarse */
+    /* Descomenta el siguiente bloque y comenta las propiedades 'white-space', 'overflow', 'text-overflow' de h1 */
+    /*
+    .navbar-brand h1 {
         white-space: normal;
-        text-overflow: unset;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-size: 1.2rem; // O un poco más grande si ocupa dos líneas
     }
+    */
 }
 
-/* Puedes añadir otro media query si necesitas un ajuste diferente para tablets (entre 768px y 992px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .navbar-title-responsive {
-        font-size: 1.8rem; /* Un tamaño intermedio para tablets */
+@media (max-width: 575.98px) { /* Punto de ruptura de Bootstrap para 'sm' (smartphones muy pequeños) */
+    .navbar-brand h1 {
+        font-size: 1.1rem; /* Podrías necesitar un tamaño aún más pequeño */
     }
 }
-
-/* O puedes usar un solo media query que afecte desde cierto tamaño hacia abajo */
-/* Por ejemplo, para todo lo que sea menor a un tamaño específico */
-/* @media (max-width: 991.98px) { */ /* Esto afectaría a tablets y móviles */
-/* .navbar-title-responsive { */
-/* font-size: 1.8rem; */
-/* } */
-/* } */
