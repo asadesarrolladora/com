@@ -590,6 +590,7 @@ h6,
 /* arreglos para el service */
 
 /* --- Ajustes para el contenido de los servicios --- */
+/* --- Ajustes generales para el contenido de los servicios --- */
 
 .service-item h4 {
     margin-bottom: 20px; /* Aumenta el espacio debajo del título del servicio */
@@ -598,19 +599,7 @@ h6,
 .service-item p {
     line-height: 1.7; /* Aumenta el espacio entre líneas para mejor lectura */
     margin-bottom: 15px; /* Espacio después de los párrafos dentro de los servicios */
-    /* Asegúrate de que no haya un 'm-0' en el HTML para que esto funcione */
-}
-
-.service-item ul {
-    text-align: left; /* Alinea las viñetas a la izquierda */
-    padding-left: 25px; /* Indenta la lista para que las viñetas sean visibles */
-    margin-bottom: 15px; /* Espacio después de la lista */
-    list-style-type: disc; /* Asegura que se muestren las viñetas */
-}
-
-.service-item ul li {
-    line-height: 1.6; /* Espacio entre los elementos de la lista */
-    margin-bottom: 8px; /* Espacio entre cada punto de la lista */
+    text-align: justify; /* Justifica el texto para una apariencia más limpia */
 }
 
 /* --- Estilo para el número de teléfono grande en la sección de cotización --- */
@@ -618,4 +607,31 @@ h6,
     font-size: 2.8em; /* Hace el número de teléfono significativamente más grande */
     font-weight: 700; /* Asegura que esté en negritas */
     letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad (opcional) */
+}
+
+/* --- Estilos para la funcionalidad "Leer Más/Menos" --- */
+
+.service-item .more-text {
+    display: none; /* Oculta el texto adicional por defecto */
+}
+
+.service-item .read-more-btn {
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    color: #007bff; /* Color azul para que parezca un enlace (puedes ajustar el color de tu tema) */
+    background-color: transparent; /* Fondo transparente para el botón */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin padding */
+    font-size: 0.9em; /* Tamaño de fuente un poco más pequeño para el botón */
+    text-decoration: underline; /* Subrayado para indicar que es un enlace */
+    transition: color 0.3s ease; /* Transición suave para el color al pasar el ratón */
+}
+
+.service-item .read-more-btn:hover {
+    color: #0056b3; /* Color más oscuro al pasar el ratón */
+    text-decoration: none; /* Quita el subrayado al pasar el ratón (opcional) */
+}
+
+/* Ajuste para que el botón de flecha no quede pegado al "leer más" */
+.service-item .btn.rounded {
+    margin-top: 15px; /* Espacio adicional entre el botón "Leer más" y el botón de flecha */
 }
