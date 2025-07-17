@@ -688,3 +688,32 @@ h6,
     font-weight: 700;
     letter-spacing: 1px;
 }
+
+/* --- Nuevo estilo para la barra de desplazamiento en el texto del servicio --- */
+.service-content-scroll {
+    max-height: 120px; /* Ajusta esta altura según cuánto texto quieras mostrar inicialmente antes del scroll */
+    overflow-y: auto; /* Muestra la barra de desplazamiento vertical solo cuando el contenido la excede */
+    padding-right: 10px; /* Pequeño padding para que el texto no toque la barra de desplazamiento */
+    margin-bottom: 15px; /* Margen para separar el texto del botón de flecha */
+    width: 100%; /* Asegura que ocupe el ancho completo disponible */
+}
+
+/* Opcional: Estilo para la barra de desplazamiento (personalización estética) */
+/* Esto puede variar el aspecto en diferentes navegadores */
+.service-content-scroll::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.service-content-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la pista de la barra */
+    border-radius: 10px;
+}
+
+.service-content-scroll::-webkit-scrollbar-thumb {
+    background: #888; /* Color del "pulgar" de la barra de desplazamiento */
+    border-radius: 10px;
+}
+
+.service-content-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del "pulgar" al pasar el ratón */
+}
