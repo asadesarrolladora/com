@@ -315,7 +315,7 @@ h6,
     position: relative;
     height: 300px;
     padding: 0 30px;
-    transition: .5s;
+    transition: .5s; 
 }
 
 .service-item .service-icon {
@@ -467,8 +467,8 @@ h6,
 .back-to-top {
     position: fixed;
     display: none;
-    right: 45px;
-    bottom: 45px;
+    left: 30px; /* <<-- CAMBIO: Ahora estará en el lado izquierdo */
+    bottom: 30px; /* Puedes ajustar este valor si quieres que esté más arriba o abajo */
     z-index: 99;
 }
 
@@ -615,27 +615,17 @@ h6,
     display: none; /* Oculta el texto adicional por defecto */
 }
 
-.service-item .read-more-btn {
-    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
-    color: #007bff; /* Color azul para que parezca un enlace (puedes ajustar el color de tu tema) */
-    background-color: transparent; /* Fondo transparente para el botón */
-    border: none; /* Sin borde */
-    padding: 0; /* Sin padding */
-    font-size: 0.9em; /* Tamaño de fuente un poco más pequeño para el botón */
-    text-decoration: underline; /* Subrayado para indicar que es un enlace */
-    transition: color 0.3s ease; /* Transición suave para el color al pasar el ratón */
-}
-
-.service-item .read-more-btn:hover {
-    color: #0056b3; /* Color más oscuro al pasar el ratón */
-    text-decoration: none; /* Quita el subrayado al pasar el ratón (opcional) */
-}
-
-/* Ajuste para que el botón de flecha no quede pegado al "leer más" */
+/* Estilo para el botón de flecha dentro del servicio */
 .service-item .btn.rounded {
-    margin-top: 15px; /* Espacio adicional entre el botón "Leer más" y el botón de flecha */
+    margin-top: auto; /* Esto lo empuja al final del contenedor flex */
+    margin-bottom: 0;
+    opacity: 1; /* Asegura que siempre sea visible */
+    padding: 12px 18px; /* Ajusta el padding para que el icono se vea bien */
+    /* width: 60px;  Mantén si quieres que sea un cuadrado */
+    /* height: 60px; Mantén si quieres que sea un cuadrado */
+    /* Añade un 'cursor: pointer;' para indicar que es clickeable */
+    cursor: pointer; 
 }
-
 /* --- Ajustes para el texto de la sección "Services boton leer mas" --- */
 /* --- Estilos para la funcionalidad "Leer Más/Menos" --- */
 

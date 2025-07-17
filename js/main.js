@@ -129,98 +129,28 @@
 (function ($) {
     "use strict";
 
-    // Spinner
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
-    };
-    spinner();
-    
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
+    // ... (el resto de tu código JS, como spinner, back to top, etc., va aquí) ...
 
-
-    // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        dots: false,
-        loop: true,
-        center: true,
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-    // Vendor carousel
-    $('.vendor-carousel').owlCarousel({
-        loop: true,
-        margin: 50,
-        dots: false,
-        loop: true,
-        autoplay: true,
-        smartSpeed: 1000,
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:2
-            },
-            768:{
-                items:3
-            },
-            992:{
-                items:4
-            }
-        }
-    });
-
-    // --- Nueva funcionalidad: Leer más/Leer menos ---
-    $('.read-more-btn').on('click', function(e) {
+    // --- Nueva funcionalidad: Mostrar/Ocultar texto al hacer clic en la flecha ---
+    // Cambiamos el selector de '.read-more-btn' a '.toggle-text-btn'
+    $('.toggle-text-btn').on('click', function(e) {
         e.preventDefault(); // Evita el comportamiento predeterminado del enlace
-        var $serviceItem = $(this).closest('.service-item'); // Encuentra el contenedor del servicio
-        var $moreText = $serviceItem.find('.more-text'); // Encuentra el texto oculto dentro de ese servicio
+
+        // Encuentra el contenedor del servicio (el elemento padre más cercano con clase 'service-item')
+        var $serviceItem = $(this).closest('.service-item'); 
+        
+        // Encuentra el texto oculto (span con clase 'more-text') dentro de ese servicio
+        var $moreText = $serviceItem.find('.more-text'); 
+        
+        // Encuentra el icono de la flecha dentro del botón clicado
+        var $arrowIcon = $(this).find('i');
 
         if ($moreText.is(':hidden')) {
             $moreText.slideDown(400); // Muestra el texto con un efecto de deslizamiento
-            $(this).text('Leer menos'); // Cambia el texto del botón
+            $arrowIcon.removeClass('bi-arrow-right').addClass('bi-arrow-up'); // Cambia la flecha a "arriba"
         } else {
             $moreText.slideUp(400); // Oculta el texto con un efecto de deslizamiento
-            $(this).text('Leer más'); // Cambia el texto del botón
+            $arrowIcon.removeClass('bi-arrow-up').addClass('bi-arrow-right'); // Cambia la flecha a "derecha"
         }
     });
 
