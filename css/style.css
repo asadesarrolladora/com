@@ -35,150 +35,289 @@
         -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
     }
     50% {
-        transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
-        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg)
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
     }
     100% {
-        transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
-        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg)
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }
+}
+
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Heading ***/
+h1,
+h2,
+.fw-bold {
+    font-weight: 800 !important;
+}
+
+h3,
+h4,
+.fw-semi-bold {
+    font-weight: 700 !important;
+}
+
+h5,
+h6,
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+
+/*** Button ***/
+.btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-primary,
+.btn-secondary {
+    color: #FFFFFF;
+    box-shadow: inset 0 0 0 50px transparent;
+}
+
+.btn-primary:hover {
+    box-shadow: inset 0 0 0 0 var(--primary);
+}
+
+.btn-secondary:hover {
+    box-shadow: inset 0 0 0 0 var(--secondary);
+}
+
+.btn-square {
+    width: 36px;
+    height: 36px;
+}
+
+.btn-sm-square {
+    width: 30px;
+    height: 30px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
 }
 
 
 /*** Navbar ***/
-.navbar .nav-item .dropdown-menu {
-    display: none;
-    min-width: 0;
-}
-
-.navbar .nav-item:hover .dropdown-menu {
-    display: block;
-}
-
-.navbar .dropdown-menu.fade.show {
-    top: 100%;
-    margin-top: 0;
-}
-
-.navbar .nav-item .nav-link {
-    padding: 30px 15px;
+.navbar-dark .navbar-nav .nav-link {
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    margin-left: 25px;
+    padding: 35px 0;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
     outline: none;
+    transition: .5s;
 }
 
-.navbar .nav-item.dropdown .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 20px 0;
+    color: var(--dark);
 }
 
-.navbar .nav-item.dropdown:hover .dropdown-toggle::after {
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
     color: var(--primary);
 }
 
-@media (min-width: 992px) {
-    .navbar .nav-item .nav-link {
-        margin-right: 15px;
-    }
+.navbar-dark .navbar-brand h1 {
+    color: #FFFFFF;
+}
+
+.navbar-dark .navbar-toggler {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
 }
 
 @media (max-width: 991.98px) {
-    .navbar .nav-item .nav-link {
+    .sticky-top.navbar-dark {
+        position: relative;
+        background: #FFFFFF;
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-nav .nav-link.show,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
         padding: 10px 0;
+        color: var(--dark);
     }
 
-    .navbar .nav-item .dropdown-menu {
-        border-radius: 0;
-        box-shadow: none;
+    .navbar-dark .navbar-brand h1 {
+        color: var(--primary);
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-bottom: 1px solid rgba(256, 256, 256, .1);
+        z-index: 999;
+    }
+    
+    .sticky-top.navbar-dark {
+        position: fixed;
+        background: #FFFFFF;
+    }
+
+    .navbar-dark .navbar-nav .nav-link::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 2px;
+        bottom: -1px;
+        left: 50%;
+        background: var(--primary);
+        transition: .5s;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover::before,
+    .navbar-dark .navbar-nav .nav-link.active::before {
+        width: 100%;
+        left: 0;
+    }
+
+    .navbar-dark .navbar-nav .nav-link.nav-contact::before {
+        display: none;
+    }
+
+    .sticky-top.navbar-dark .navbar-brand h1 {
+        color: var(--primary);
     }
 }
 
 
-/*** Header ***/
-.header-carousel .owl-nav {
-    position: absolute;
-    width: 100%;
-    height: 40px;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    opacity: 0;
-    transition: .5s;
-}
-
-.header-carousel .owl-nav .owl-prev,
-.header-carousel .owl-nav .owl-next {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    background: var(--primary);
-    border-radius: 2px;
-    font-size: 20px;
-transition: .5s;
-}
-
-.header-carousel .owl-nav .owl-prev:hover,
-.header-carousel .owl-nav .owl-next:hover {
-    background: var(--dark);
-}
-
-.header-carousel:hover .owl-nav {
-    opacity: 1;
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-    color: var(--light);
-}
-
-
-/*** Facts ***/
-.facts .facts-item {
-    position: relative;
-    padding: 30px;
-    background: var(--light);
-}
-
-.facts .facts-item::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
+/*** Carousel ***/
+.carousel-caption {
     top: 0;
     left: 0;
-    background: var(--primary);
-    transition: .5s;
-    z-index: -1;
+    right: 0;
+    bottom: 0;
+    background: rgba(9, 30, 62, .7);
+    z-index: 1;
 }
 
-.facts .facts-item:hover::before {
-    width: 0%;
+@media (max-width: 576px) {
+    .carousel-caption h5 {
+        font-size: 14px;
+        font-weight: 500 !important;
+    }
+
+    .carousel-caption h1 {
+        font-size: 30px;
+        font-weight: 600 !important;
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+/*** Section Title ***/
+.section-title::before {
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.section-title.text-center::before {
+    left: 50%;
+    margin-left: -75px;
+}
+
+.section-title.section-title-sm::before {
+    width: 90px;
+    height: 3px;
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 6px;
+    height: 5px;
+    bottom: 0px;
+    background: #FFFFFF;
+    -webkit-animation: section-title-run 5s infinite linear;
+    animation: section-title-run 5s infinite linear;
+}
+
+.section-title.section-title-sm::after {
+    width: 4px;
+    height: 3px;
+}
+
+.section-title.text-center::after {
+    -webkit-animation: section-title-run-center 5s infinite linear;
+    animation: section-title-run-center 5s infinite linear;
+}
+
+.section-title.section-title-sm::after {
+    -webkit-animation: section-title-run-sm 5s infinite linear;
+    animation: section-title-run-sm 5s infinite linear;
+}
+
+@-webkit-keyframes section-title-run {
+    0% {left: 0; } 50% { left : 145px; } 100% { left: 0; }
+}
+
+@-webkit-keyframes section-title-run-center {
+    0% { left: 50%; margin-left: -75px; } 50% { left : 50%; margin-left: 45px; } 100% { left: 50%; margin-left: -75px; }
+}
+
+@-webkit-keyframes section-title-run-sm {
+    0% {left: 0; } 50% { left : 85px; } 100% { left: 0; }
 }
 
 
 /*** Service ***/
-/* Ajustes para el contenedor principal del servicio */
 .service-item {
-    position: relative; /* Mantiene la posición relativa para elementos internos */
-    height: auto; /* Permite que la altura se ajuste al contenido */
-    min-height: 400px; /* Puedes ajustar la altura mínima si es necesario para un diseño uniforme */
-    padding: 30px; /* Padding interno para el contenido */
+    position: relative;
+    height: 300px;
+    padding: 0 30px;
     transition: .5s;
-    display: flex; /* Utiliza flexbox */
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Centra horizontalmente el contenido */
-    justify-content: space-between; /* Distribuye el espacio para empujar el botón al final */
-    text-align: center; /* Centra el texto */
-    overflow: hidden; /* Oculta cualquier contenido que se desborde */
 }
 
-/* El ícono del servicio (círculo azul) */
 .service-item .service-icon {
     margin-bottom: 30px;
     width: 60px;
@@ -189,289 +328,373 @@ transition: .5s;
     background: var(--primary);
     border-radius: 2px;
     transform: rotate(-45deg);
-    flex-shrink: 0;
 }
 
 .service-item .service-icon i {
     transform: rotate(45deg);
 }
 
-/* El botón de flecha (el que estaba causando problemas de superposición) */
-.service-item .btn.rounded {
-    /* Eliminamos las propiedades de posicionamiento absoluto y opacidad */
-    margin-top: auto; /* Esto empuja el botón hacia la parte inferior del flex container */
-    margin-bottom: 0; /* Asegura que no tenga un margen inferior adicional */
-    opacity: 1; /* Siempre visible */
-    padding: 12px 18px; /* Ajusta el padding para que el icono se vea bien */
-    /* Puedes añadir un ancho y alto si quieres que sea un cuadrado perfecto: */
-    /* width: 60px; */
-    /* height: 60px; */
-}
-
-
-/* Estilos para la funcionalidad "Leer Más/Menos" (si la implementas en el HTML/JS) */
-.service-item .read-more-btn {
-    cursor: pointer;
-    color: #007bff; /* Color azul para que parezca un enlace */
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    font-size: 0.9em;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-    
-    margin-top: 10px; /* Pequeño margen superior para separarlo del texto */
-    margin-bottom: 10px; /* Margen inferior para separarlo del botón de flecha (si existe) */
-    display: block; /* Asegura que el margen y padding se apliquen correctamente */
-    width: fit-content; /* Se ajusta al ancho del texto */
-}
-
-.service-item .read-more-btn:hover {
-    color: #0056b3;
-    text-decoration: none;
-}
-
-/* Asegurarse de que los párrafos tengan su espacio y justificación */
-.service-item p {
-    line-height: 1.7;
-    margin-bottom: 15px; /* Espacio después de cada párrafo */
-    text-align: justify; /* Justifica el texto */
-    flex-grow: 1; /* Permite que los párrafos crezcan y ocupen el espacio disponible */
-}
-
-
-/* Texto oculto para la función "Leer más" */
-.service-item .more-text {
-    display: none; /* Oculta el texto adicional por defecto */
-}
-
-
-/*** Pricing ***/
-.price-item {
-    position: relative;
-    padding: 30px;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .06);
-}
-
-.price-item.featured {
-    background: var(--primary);
-}
-
-.price-item h4 {
-    color: #091E3E;
-}
-
-.price-item.featured h4 {
-    color: #FFFFFF;
-}
-
-.price-item ul {
-    list-style: none;
-    padding: 0;
-}
-
-.price-item ul li {
-    padding: 10px 0;
-    border-bottom: 1px dashed #DDDDDD;
-}
-
-.price-item ul li:last-child {
-    border-bottom: none;
-}
-
-.price-item.featured ul li {
-    border-color: rgba(255, 255, 255, .3);
-}
-
-.price-item ul li i {
-    color: var(--primary);
-    margin-right: 10px;
-}
-
-.price-item.featured ul li i {
-    color: #FFFFFF;
-}
-
-.price-item .btn.btn-primary {
-    background: var(--primary);
-    color: #FFFFFF;
-}
-
-.price-item.featured .btn.btn-primary {
-    background: #FFFFFF;
-    color: var(--primary);
-}
-
-
-/*** Quote ***/
-.quote {
-    background: url(../img/quote.jpg) center center no-repeat;
-    background-size: cover;
-}
-
-
-/*** Team ***/
-.team-item .team-text {
-    position: relative;
-    padding: 30px;
-    background: var(--light);
-}
-
-.team-item .team-text::before {
+.service-item a.btn {
     position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: var(--primary);
-    transition: .5s;
-    z-index: -1;
-}
-
-.team-item:hover .team-text::before {
-    width: 0%;
-}
-
-
-/*** Testimonial ***/
-.testimonial-carousel .owl-item {
-    padding: 10px;
-}
-
-.testimonial-carousel .testimonial-item {
-    position: relative;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item {
-    background: var(--primary);
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item * {
-    color: #FFFFFF;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item::after {
-    background: var(--primary);
-}
-
-.testimonial-carousel .testimonial-item::after {
-    position: absolute;
-    content: "";
-    width: 100px;
-    height: 100px;
-    bottom: -50px;
-    right: 0;
-    background: var(--light);
-    transform: rotate(-45deg);
-    z-index: -1;
-}
-
-.testimonial-carousel .owl-nav {
-    margin-top: 45px;
-    display: flex;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-nav .owl-prev,
-.testimonial-carousel .owl-nav .owl-next {
-    margin: 0 12px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    background: var(--light);
-    border-radius: 2px;
-    font-size: 20px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-nav .owl-prev:hover,
-.testimonial-carousel .owl-nav .owl-next:hover {
-    color: #FFFFFF;
-    background: var(--primary);
-}
-
-
-/*** Blog ***/
-.blog-item .blog-img {
-    position: relative;
-    overflow: hidden;
-}
-
-.blog-item .blog-img::before {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(9, 30, 62, .7);
-    transition: .5s;
-}
-
-.blog-item .blog-img:hover::before {
-    width: 100%;
-}
-
-.blog-item .blog-img img {
-    transition: .5s;
-}
-
-.blog-item .blog-img:hover img {
-    transform: scale(1.2);
-}
-
-.blog-item .blog-text {
-    position: relative;
-    padding: 30px;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .06);
-}
-
-.blog-item .blog-text .blog-action {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(9, 30, 62, .7);
-    transition: .5s;
+    width: 60px;
+    bottom: -48px;
+    left: 50%;
+    margin-left: -30px;
     opacity: 0;
 }
 
-.blog-item .blog-text:hover .blog-action {
+.service-item:hover a.btn {
+    bottom: -24px;
     opacity: 1;
 }
 
 
-/*** Footer ***/
-.footer .btn.btn-square {
-    color: var(--primary);
-    background: #FFFFFF;
+/*** Testimonial ***/
+.testimonial-carousel .owl-dots {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
-.footer .btn.btn-square:hover {
-    color: #FFFFFF;
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: #DDDDDD;
+    border-radius: 2px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    width: 30px;
     background: var(--primary);
 }
 
-.logo-asa-img {
-    height: 40px; /* Ajusta este valor según el tamaño deseado para tu logo */
-    vertical-align: middle;
-    margin-right: 10px;
+.testimonial-carousel .owl-item.center {
+    position: relative;
+    z-index: 1;
 }
 
-/* Estilo para el número de teléfono grande en la sección de cotización */
+.testimonial-carousel .owl-item .testimonial-item {
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item {
+    background: #FFFFFF !important;
+    box-shadow: 0 0 30px #DDDDDD;
+}
+
+
+/*** Team ***/
+.team-item {
+    transition: .5s;
+}
+
+.team-social {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+
+.team-social a.btn {
+    position: relative;
+    margin: 0 3px;
+    margin-top: 100px;
+    opacity: 0;
+}
+
+.team-item:hover {
+    box-shadow: 0 0 30px #DDDDDD;
+}
+
+.team-item:hover .team-social {
+    background: rgba(9, 30, 62, .7);
+}
+
+.team-item:hover .team-social a.btn:first-child {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s 0s;
+}
+
+.team-item:hover .team-social a.btn:nth-child(2) {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s .05s;
+}
+
+.team-item:hover .team-social a.btn:nth-child(3) {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s .1s;
+}
+
+.team-item:hover .team-social a.btn:nth-child(4) {
+    opacity: 1;
+    margin-top: 0;
+    transition: .3s .15s;
+}
+
+.team-item .team-img img,
+.blog-item .blog-img img  {
+    transition: .5s;
+}
+
+.team-item:hover .team-img img,
+.blog-item:hover .blog-img img {
+    transform: scale(1.15);
+}
+
+
+/*** Miscellaneous ***/
+@media (min-width: 991.98px) {
+    .facts {
+        position: relative;
+        margin-top: -75px;
+        z-index: 1;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+.bg-header {
+    background: linear-gradient(rgba(9, 30, 62, .7), rgba(9, 30, 62, .7)), url(../img/carousel-1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.link-animated a {
+    transition: .5s;
+}
+
+.link-animated a:hover {
+    padding-left: 10px;
+}
+
+@media (min-width: 767.98px) {
+    .footer-about {
+        margin-bottom: -75px;
+    }
+}
+
+.footer-logo-text {
+    font-size: 24px; /* Ajusta este valor al tamaño deseado */
+    /* O si quieres que sea responsivo: */
+    /* font-size: 2.5vw; */ /* 2.5% del ancho del viewport */
+    /* O para tamaños específicos en diferentes pantallas: */
+}
+
+/* Media queries para responsividad si es necesario */
+@media (max-width: 991.98px) { /* Por ejemplo, para tablets */
+    .footer-logo-text {
+        font-size: 20px;
+    }
+}
+@media (max-width: 767.98px) { /* Por ejemplo, para móviles */
+    .footer-logo-text {
+        font-size: 18px;
+    }
+}
+
+.logo-asa-img {
+    height: 1em; /* Ajusta el tamaño según sea necesario */
+    vertical-align: middle; /* Ayuda a alinear la imagen con el texto */
+    margin-right: 0.5em; /* Espacio entre la imagen y el texto */
+    /* Puedes agregar más estilos aquí, como width, etc. */
+}
+
+/* Estilos por defecto para pantallas grandes (o el tamaño actual de tu H1) */
+/* Puedes dejar que H1 tome su tamaño por defecto si te gusta para escritorio, */
+/* o definir un font-size específico aquí si prefieres. */
+.navbar-title-responsive {
+    /* Si quieres un tamaño fijo para escritorio que sea un poco menor que el default H1,
+       puedes usar algo como: */
+    /* font-size: 2.3rem; */ /* Ajusta este valor si es necesario para escritorio */
+
+    /* Para asegurar que no se corta en líneas antes del media query, si el texto es largo */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden;    /* Oculta cualquier parte que se desborde */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es cortado */
+}
+
+/* Ajustes para pantallas pequeñas (celulares) */
+
+/* ... (Tu código CSS anterior para .navbar-brand y .logo-asa-img) ... */
+
+.navbar-brand h1 {
+    font-size: 2.2rem; /* Tamaño de fuente para pantallas de escritorio. */
+    margin: 0;
+    line-height: 1.2; /* Espaciado entre líneas */
+    color: var(--primary); /* O el color de tu marca */
+    /* Elimina o comenta las siguientes líneas si estaban antes para una sola línea: */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+
+/* ------------------------------------------------------------- */
+/* Media Queries para Tablets y Móviles */
+/* ------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        max-width: calc(100% - 70px); /* Ajusta según el espacio de tu botón de menú */
+        /* Ya no necesitamos white-space: nowrap aquí si el h1 va a ir en dos líneas */
+        /* Si quieres que el contenedor tenga overflow y ellipsis, puedes dejarlo, pero si el h1 es de dos líneas, no aplicaría tanto. */
+        overflow: visible; /* Asegura que el contenedor permita que el h1 crezca en altura */
+        white-space: normal; /* Permitir que el texto se rompa */
+    }
+
+    .navbar-brand .logo-asa-img {
+        height: 35px;
+        margin-right: 5px;
+        flex-shrink: 0;
+    }
+
+    .navbar-brand h1 {
+        font-size: 1.3rem; /* Ajusta este tamaño de fuente para dos renglones en móvil.
+                            Puede ser un poco más grande que si fuera de una línea. */
+        white-space: normal; /* ¡CLAVE! Permite que el texto se divida en varias líneas */
+        word-wrap: break-word; /* Asegura que las palabras largas se rompan si es necesario */
+        word-break: break-word; /* Otra propiedad para asegurar el quiebre de palabras */
+        line-height: 1.2; /* Ajusta el espacio entre las dos líneas para una mejor lectura */
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand .logo-asa-img {
+        height: 30px;
+        margin-right: 3px;
+    }
+
+    .navbar-brand h1 {
+        font-size: 1.1rem; /* Posiblemente un tamaño aún más pequeño para móviles muy angostos */
+        line-height: 1.2;
+    }
+}
+
+/* arreglos para el service */
+
+/* --- Ajustes para el contenido de los servicios --- */
+/* --- Ajustes generales para el contenido de los servicios --- */
+
+.service-item h4 {
+    margin-bottom: 20px; /* Aumenta el espacio debajo del título del servicio */
+}
+
+.service-item p {
+    line-height: 1.7; /* Aumenta el espacio entre líneas para mejor lectura */
+    margin-bottom: 15px; /* Espacio después de los párrafos dentro de los servicios */
+    text-align: justify; /* Justifica el texto para una apariencia más limpia */
+}
+
+/* --- Estilo para el número de teléfono grande en la sección de cotización --- */
 .phone-number-large {
     font-size: 2.8em; /* Hace el número de teléfono significativamente más grande */
     font-weight: 700; /* Asegura que esté en negritas */
     letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad (opcional) */
+}
+
+/* --- Estilos para la funcionalidad "Leer Más/Menos" --- */
+
+.service-item .more-text {
+    display: none; /* Oculta el texto adicional por defecto */
+}
+
+.service-item .read-more-btn {
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    color: #007bff; /* Color azul para que parezca un enlace (puedes ajustar el color de tu tema) */
+    background-color: transparent; /* Fondo transparente para el botón */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin padding */
+    font-size: 0.9em; /* Tamaño de fuente un poco más pequeño para el botón */
+    text-decoration: underline; /* Subrayado para indicar que es un enlace */
+    transition: color 0.3s ease; /* Transición suave para el color al pasar el ratón */
+}
+
+.service-item .read-more-btn:hover {
+    color: #0056b3; /* Color más oscuro al pasar el ratón */
+    text-decoration: none; /* Quita el subrayado al pasar el ratón (opcional) */
+}
+
+/* Ajuste para que el botón de flecha no quede pegado al "leer más" */
+.service-item .btn.rounded {
+    margin-top: 15px; /* Espacio adicional entre el botón "Leer más" y el botón de flecha */
+}
+
+/* --- Ajustes para el texto de la sección "Services boton leer mas" --- */
+/* --- Estilos para la funcionalidad "Leer Más/Menos" --- */
+
+.service-item .more-text {
+    display: none; /* Oculta el texto adicional por defecto */
+}
+
+.service-item .read-more-btn {
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    color: #007bff; /* Color azul para que parezca un enlace (puedes ajustar el color de tu tema) */
+    background-color: transparent; /* Fondo transparente para el botón */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin padding */
+    font-size: 0.9em; /* Tamaño de fuente un poco más pequeño para el botón */
+    text-decoration: underline; /* Subrayado para indicar que es un enlace */
+    transition: color 0.3s ease; /* Transición suave para el color al pasar el ratón */
+    
+    /* --- AJUSTE CLAVE AQUÍ: MARGEN INFERIOR --- */
+    margin-bottom: 20px; /* Añade un margen inferior para separarlo del siguiente elemento */
+    display: block; /* Asegura que el margen inferior funcione correctamente */
+}
+
+.service-item .read-more-btn:hover {
+    color: #0056b3; /* Color más oscuro al pasar el ratón */
+    text-decoration: none; /* Quita el subrayado al pasar el ratón (opcional) */
+}
+
+/* Ajuste para el botón de flecha (la clase .btn.rounded es la de este botón) */
+.service-item .btn.rounded {
+    margin-top: 15px; /* Ajusta el margen superior para que no se pegue al "leer más" */
+    /* Asegúrate de que esta regla tenga suficiente especificidad para sobrescribir 'mt-4' si es necesario */
+}
+
+/* --- Otros ajustes generales que ya tenías o necesitas --- */
+
+.service-item h4 {
+    margin-bottom: 20px;
+}
+
+.service-item p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.service-item ul {
+    text-align: left;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    list-style-type: disc;
+}
+
+.service-item ul li {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.phone-number-large {
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
