@@ -586,3 +586,36 @@ h6,
         line-height: 1.2;
     }
 }
+
+/* arreglos para el service */
+
+/* --- Ajustes para el contenido de los servicios --- */
+
+.service-item h4 {
+    margin-bottom: 20px; /* Aumenta el espacio debajo del título del servicio */
+}
+
+.service-item p {
+    line-height: 1.7; /* Aumenta el espacio entre líneas para mejor lectura */
+    margin-bottom: 15px; /* Espacio después de los párrafos dentro de los servicios */
+    /* Asegúrate de que no haya un 'm-0' en el HTML para que esto funcione */
+}
+
+.service-item ul {
+    text-align: left; /* Alinea las viñetas a la izquierda */
+    padding-left: 25px; /* Indenta la lista para que las viñetas sean visibles */
+    margin-bottom: 15px; /* Espacio después de la lista */
+    list-style-type: disc; /* Asegura que se muestren las viñetas */
+}
+
+.service-item ul li {
+    line-height: 1.6; /* Espacio entre los elementos de la lista */
+    margin-bottom: 8px; /* Espacio entre cada punto de la lista */
+}
+
+/* --- Estilo para el número de teléfono grande en la sección de cotización --- */
+.phone-number-large {
+    font-size: 2.8em; /* Hace el número de teléfono significativamente más grande */
+    font-weight: 700; /* Asegura que esté en negritas */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad (opcional) */
+}
