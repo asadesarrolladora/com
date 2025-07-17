@@ -635,3 +635,66 @@ h6,
 .service-item .btn.rounded {
     margin-top: 15px; /* Espacio adicional entre el botón "Leer más" y el botón de flecha */
 }
+
+/* --- Ajustes para el texto de la sección "Services boton leer mas" --- */
+/* --- Estilos para la funcionalidad "Leer Más/Menos" --- */
+
+.service-item .more-text {
+    display: none; /* Oculta el texto adicional por defecto */
+}
+
+.service-item .read-more-btn {
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    color: #007bff; /* Color azul para que parezca un enlace (puedes ajustar el color de tu tema) */
+    background-color: transparent; /* Fondo transparente para el botón */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin padding */
+    font-size: 0.9em; /* Tamaño de fuente un poco más pequeño para el botón */
+    text-decoration: underline; /* Subrayado para indicar que es un enlace */
+    transition: color 0.3s ease; /* Transición suave para el color al pasar el ratón */
+    
+    /* --- AJUSTE CLAVE AQUÍ: MARGEN INFERIOR --- */
+    margin-bottom: 20px; /* Añade un margen inferior para separarlo del siguiente elemento */
+    display: block; /* Asegura que el margen inferior funcione correctamente */
+}
+
+.service-item .read-more-btn:hover {
+    color: #0056b3; /* Color más oscuro al pasar el ratón */
+    text-decoration: none; /* Quita el subrayado al pasar el ratón (opcional) */
+}
+
+/* Ajuste para el botón de flecha (la clase .btn.rounded es la de este botón) */
+.service-item .btn.rounded {
+    margin-top: 15px; /* Ajusta el margen superior para que no se pegue al "leer más" */
+    /* Asegúrate de que esta regla tenga suficiente especificidad para sobrescribir 'mt-4' si es necesario */
+}
+
+/* --- Otros ajustes generales que ya tenías o necesitas --- */
+
+.service-item h4 {
+    margin-bottom: 20px;
+}
+
+.service-item p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.service-item ul {
+    text-align: left;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    list-style-type: disc;
+}
+
+.service-item ul li {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.phone-number-large {
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
