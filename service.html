@@ -245,19 +245,22 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form>
+                        <form action="https://formspree.io/f/meokbwwp" method="POST">
                             <div class="row g-3">
-                                <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Tu Nombre" style="height: 55px;">
+                                <div class="col-md-6">
+                                    <input type="text" name="nombre" class="form-control border-0 bg-light px-4" placeholder="Tu Nombre" style="height: 55px;" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="_replyto" class="form-control border-0 bg-light px-4" placeholder="Tu Correo Electrónico" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Tu Correo Electrónico" style="height: 55px;">
+                                    <input type="text" name="asunto" class="form-control border-0 bg-light px-4" placeholder="Asunto" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Mensaje"></textarea>
+                                    <textarea name="mensaje" class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Mensaje" required></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-dark w-100 py-3" type="submit">Solicitar Cotización</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Enviar Mensaje</button>
                                 </div>
                             </div>
                         </form>
